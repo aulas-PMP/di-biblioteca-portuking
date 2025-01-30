@@ -1,0 +1,12 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Main",
+            "request": "launch",
+            "mainClass": "reproductor.Main",
+            "vmArgs": "--module-path /home/COTARELO/pdopazo/Downloads/javafx-sdk-21/lib/ --add-modules javafx.controls,javafx.fxml"
+        }
+    ]
+}
