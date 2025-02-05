@@ -173,3 +173,32 @@
     -fx-border-width: 1px 0 1px 1px; /* Borde izquierdo y derecho */
 }
 
+.slider {
+    padding: 5px;
+    -fx-padding: 5px;
+    -fx-pref-width: 150px;
+}
+
+.slider .track {
+    background-color: #BDBDBD;
+    -fx-background-color: #BDBDBD;
+    border-radius: 5px;
+    -fx-border-radius: 5px;
+}
+
+.slider .thumb {
+    background-color: #2196F3;
+    -fx-background-color: #2196F3;
+    border-radius: 50%;
+    -fx-border-radius: 50%;
+}
+
+.volume-label {
+    font-size: 16px;
+    -fx-font-size: 16px;
+    -fx-text-fill: #333;
+    padding: 3px;
+    -fx-padding: 3px;
+}
+
+

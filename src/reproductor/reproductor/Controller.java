@@ -11,6 +11,7 @@ import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
 import javafx.stage.FileChooser;
 import javafx.scene.control.ListView;
+import javafx.scene.control.Slider;
 
 public class Controller {
 
@@ -48,6 +49,9 @@ public class Controller {
     @FXML
     private MediaView mediaView; // Para reproducir el video
 
+    @FXML
+    private Slider volumeSlider;
+
     /** Estado inicial de la barra izquierda: la barra está visible */
     private boolean isLeftPanelVisible = true;
     /** Estado inicial de la barra derecha: la barra está visible */
@@ -77,6 +81,17 @@ public class Controller {
         playButton.setOnAction(event -> playMedia());
         pauseButton.setOnAction(event -> pauseMedia());
         stopButton.setOnAction(event -> stopMedia());
+
+        volumeSlider.valueProperty().addListener((observable, oldValue, newValue) -> {
+            if (mediaPlayer != null) {
+                mediaPlayer.setVolume(newValue.doubleValue());
+            }
+        });
+    
+        // Establecer el volumen inicial en 50%
+        if (mediaPlayer != null) {
+            mediaPlayer.setVolume(0.5);
+        }
     }
 
     /**
