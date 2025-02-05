@@ -13,78 +13,87 @@
 <?import javafx.scene.control.Label?>
 
 
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+   prefHeight="790.0" prefWidth="1183.0" stylesheets="@styles.css"
+   xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1"
+   fx:controller="reproductor.Controller">
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="790.0" prefWidth="1183.0" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="reproductor.Controller">
+   <children>
+      <BorderPane fx:id="mainPane" prefHeight="200.0" prefWidth="200.0">
 
-    <children>
-        <BorderPane fx:id="mainPane" prefHeight="200.0" prefWidth="200.0">
-            
-            <top>
-                <MenuBar fx:id="menuBar" BorderPane.alignment="CENTER">
-                    <menus>
-                        <Menu mnemonicParsing="false" text="Archivo">
-                            <items>
-                                <MenuItem fx:id="menuClose" mnemonicParsing="false" text="Close" />
-                            </items>
-                        </Menu>
-                        <Menu mnemonicParsing="false" text="Biblioteca">
-                            <items>
-                                <MenuItem fx:id="menuDelete" mnemonicParsing="false" text="Delete" />
-                            </items>
-                        </Menu>
-                        <Menu mnemonicParsing="false" text="Ver">
-                            <items>
-                                <MenuItem fx:id="menuAbout" mnemonicParsing="false" text="About" />
-                            </items>
-                        </Menu>
-                    </menus>
-                </MenuBar>
-            </top>
-            
-            <left>
-                <VBox fx:id="leftPanel" alignment="TOP_CENTER" prefHeight="663.0" prefWidth="206.0" styleClass="vbox" BorderPane.alignment="CENTER">
-                    <children>
-                        <HBox alignment="TOP_RIGHT">
-                           <Button fx:id="toggleSideLeftbarButton" styleClass="toggle-button" text="⏪" />
-                        </HBox>
-                        <Button fx:id="btnChangeSpeed" mnemonicParsing="false" prefHeight="45.0" prefWidth="144.0" text="Cambiar Velocidad" />
-                        <Button fx:id="btnChangeSize" mnemonicParsing="false" prefHeight="45.0" prefWidth="130.0" text="Cambiar Tamaño" textAlignment="CENTER" />
-                    </children>
-                </VBox>
-            </left>
-            
-            <center>
-                <StackPane>
-                  <MediaView fx:id="mediaView" fitHeight="400" fitWidth="700" preserveRatio="true"/>
-               </StackPane>
-            </center>
-            
-            <bottom>
-                <HBox fx:id="bottomPanel" alignment="CENTER" prefHeight="100.0" prefWidth="200.0" styleClass="hbox" BorderPane.alignment="CENTER">
-                    <children>
-                        <Button fx:id="playButton" mnemonicParsing="false" text="Play" />
-                        <Button fx:id="pauseButton" mnemonicParsing="false" text="Pause" />
-                        <Button fx:id="stopButton" mnemonicParsing="false" text="Stop" />
-                    </children>
-                </HBox>
-            </bottom>
-        
+         <top>
+            <MenuBar fx:id="menuBar" BorderPane.alignment="CENTER">
+               <menus>
+                  <Menu mnemonicParsing="false" text="Archivo">
+                     <items>
+                        <MenuItem fx:id="menuClose" mnemonicParsing="false" text="Close" />
+                     </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="Biblioteca">
+                     <items>
+                        <MenuItem fx:id="menuDelete" mnemonicParsing="false" text="Delete" />
+                     </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="Ver">
+                     <items>
+                        <MenuItem fx:id="menuAbout" mnemonicParsing="false" text="About" />
+                     </items>
+                  </Menu>
+               </menus>
+            </MenuBar>
+         </top>
+
+         <left>
+            <VBox fx:id="leftPanel" alignment="TOP_CENTER" prefHeight="663.0" prefWidth="206.0"
+               styleClass="vbox" BorderPane.alignment="CENTER">
+               <children>
+                  <HBox alignment="TOP_RIGHT">
+                     <Button fx:id="toggleSideLeftbarButton" styleClass="toggle-button" text="⏪" />
+                  </HBox>
+                  <Button fx:id="btnChangeSpeed" mnemonicParsing="false" prefHeight="45.0"
+                     prefWidth="144.0" text="Cambiar Velocidad" />
+                  <Button fx:id="btnChangeSize" mnemonicParsing="false" prefHeight="45.0"
+                     prefWidth="130.0" text="Cambiar Tamaño" textAlignment="CENTER" />
+               </children>
+            </VBox>
+         </left>
+
+         <center>
+            <StackPane fx:id="mediaPlayerContainer" styleClass="stack-pane">
+               <MediaView fx:id="mediaView" preserveRatio="true" />
+            </StackPane>
+         </center>
+
+
+         <bottom>
+            <HBox fx:id="bottomPanel" alignment="CENTER" prefHeight="100.0" prefWidth="200.0"
+               styleClass="hbox" BorderPane.alignment="CENTER">
+               <children>
+                  <Button fx:id="playButton" mnemonicParsing="false" text="Play" />
+                  <Button fx:id="pauseButton" mnemonicParsing="false" text="Pause" />
+                  <Button fx:id="stopButton" mnemonicParsing="false" text="Stop" />
+               </children>
+            </HBox>
+         </bottom>
+
          <right>
-            <VBox fx:id="multimediaPanel" prefHeight="664.0" prefWidth="238.0" styleClass="vbox" BorderPane.alignment="CENTER">
+            <VBox fx:id="multimediaPanel" prefHeight="664.0" prefWidth="238.0" styleClass="vbox"
+               BorderPane.alignment="CENTER">
                <children>
                   <HBox prefHeight="100.0" prefWidth="200.0">
                      <children>
                         <Button fx:id="toggleSideRigthbarButton" styleClass="toggle-button" text="⏩" />
                      </children>
                   </HBox>
-                  <Label fx:id="libraryTitleLabel" text="Biblioteca de Videos" styleClass="library-title"/>
+                  <Label fx:id="libraryTitleLabel" text="Biblioteca de Videos"
+                     styleClass="library-title" />
                   <ListView fx:id="videoListView" prefHeight="449.0" prefWidth="217.0" />
-                  <Button fx:id="btnAddVideo" text="Añadir Video" styleClass="library-button"/>
+                  <Button fx:id="btnAddVideo" text="Añadir Video" styleClass="library-button" />
                </children>
             </VBox>
          </right>
 
-        </BorderPane>
+      </BorderPane>
 
-    </children>
+   </children>
 </StackPane>

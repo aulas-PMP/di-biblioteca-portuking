@@ -118,8 +118,8 @@
 
 /* Reproductor de medios (centro) */
 .stack-pane {
-    background-color: #ECEFF1;
-    -fx-background-color: #ECEFF1;
+    background-color: #020202;
+    -fx-background-color: #020202;
     border-color: #BDBDBD;
     -fx-border-color: #BDBDBD;
     border-width: 1px;
