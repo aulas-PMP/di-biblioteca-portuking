@@ -1,0 +1,118 @@
+/* Fondo de la aplicación */
+.root {
+    background-color: #FAFAFA;
+    -fx-background-color: #FAFAFA;
+}
+
+/* Estilo para la barra de menú */
+.menu-bar {
+    background-color: #E3F2FD;
+    -fx-background-color: #E3F2FD;
+    border-width: 0 0 1px 0;
+    -fx-border-width: 0 0 1px 0;
+    border-color: #BDBDBD;
+    -fx-border-color: #BDBDBD;
+}
+
+/* Estilo para los menús */
+.menu {
+    color: #424242;
+    -fx-text-fill: #424242;
+}
+
+/* Estilo para los botones */
+.button {
+    background-color: #2196F3;
+    -fx-background-color: #2196F3;
+    color: white;
+    -fx-text-fill: white;
+    font-size: 14px;
+    -fx-font-size: 14px;
+    font-weight: bold;
+    -fx-font-weight: bold;
+    border-radius: 5px;
+    -fx-border-radius: 5px;
+    padding: 8px;
+    -fx-padding: 8px;
+    cursor: pointer;
+    -fx-cursor: hand;
+}
+
+/* Hover (cuando el cursor pasa por encima del botón) */
+.button:hover {
+    background-color: #1976D2;
+    -fx-background-color: #1976D2;
+}
+
+/* Botones de control (Play, Pause, Stop) */
+.hbox .button {
+    min-width: 80px;
+    -fx-min-width: 80px;
+}
+
+/* Botón de minimizar alineado arriba a la derecha */
+.toggle-button {
+    background-color: #FF9800;
+    -fx-background-color: #FF9800;
+    -fx-text-fill: white;
+    font-size: 12px;
+    -fx-font-size: 12px;
+    border-radius: 5px;
+    -fx-border-radius: 5px;
+    padding: 5px;
+    -fx-padding: 5px;
+    cursor: hand;
+    -fx-cursor: hand;
+    -fx-alignment: center-right;
+    margin: 5px 5px 0px 0px;
+    -fx-margin: 5px 5px 0px 0px; /* Espacio desde arriba y la derecha */
+}
+
+/* Efecto al pasar el mouse */
+.toggle-button:hover {
+    background-color: #F57C00;
+    -fx-background-color: #F57C00;
+}
+
+
+/* Panel lateral izquierdo */
+.vbox {
+    background-color: #E3F2FD;
+    -fx-background-color: #E3F2FD;
+    padding: 10px;
+    -fx-padding: 10px;
+    border-width: 0 1px 0 0;
+    -fx-border-width: 0 1px 0 0;
+    border-color: #BDBDBD;
+    -fx-border-color: #BDBDBD;
+    -fx-spacing: 10px;
+}
+
+/* Lista de archivos en la biblioteca */
+.list-view {
+    background-color: #FAFAFA;
+    -fx-background-color: #FAFAFA;
+    border-color: #BDBDBD;
+    -fx-border-color: #BDBDBD;
+}
+
+/* Reproductor de medios (centro) */
+.stack-pane {
+    background-color: #ECEFF1;
+    -fx-background-color: #ECEFF1;
+    border-color: #BDBDBD;
+    -fx-border-color: #BDBDBD;
+    border-width: 1px;
+    -fx-border-width: 1px;
+}
+
+/* Contenedor de los botones inferiores */
+.hbox {
+    background-color: #E3F2FD;
+    -fx-background-color: #E3F2FD;
+    -fx-spacing: 15px;
+    padding: 10px;
+    -fx-padding: 10px;
+    border-color: #BDBDBD;
+    -fx-border-color: #BDBDBD;
+}

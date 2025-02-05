@@ -5,8 +5,22 @@
             "type": "java",
             "name": "Main",
             "request": "launch",
+            "mainClass": "Main",
+            "projectName": "Reproductor_multimedia_3a7c7076"
+        },
+        {
+            "type": "java",
+            "name": "Main",
+            "request": "launch",
             "mainClass": "reproductor.Main",
-            "vmArgs": "--module-path /home/COTARELO/pdopazo/Downloads/javafx-sdk-21/lib/ --add-modules javafx.controls,javafx.fxml"
+            "vmArgs": "--module-path D:/javafx-sdk-21/lib/ --add-modules javafx.controls,javafx.fxml"
         }
     ]
 }
+/* CONFIG LINUX {
+            "type": "java",
+            "name": "Main",
+            "request": "launch",
+            "mainClass": "reproductor.Main",
+            "vmArgs": "--module-path /home/COTARELO/pdopazo/Downloads/javafx-sdk-21/lib/ --add-modules javafx.controls,javafx.fxml"
+        }**/
