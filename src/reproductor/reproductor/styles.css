@@ -88,6 +88,26 @@
     -fx-spacing: 10px;
 }
 
+.library-button {
+    background-color: #FF9800;
+    -fx-background-color: #FF9800; /* Verde */
+    -fx-text-fill: white;
+    font-size: 14px;
+    -fx-font-size: 14px;
+    font-weight: bold;
+    -fx-font-weight: bold;
+    border-radius: 5px;
+    -fx-border-radius: 5px;
+    padding: 10px;
+    -fx-padding: 10px;
+}
+
+/* Hover (cuando el cursor pasa sobre el botón) */
+.library-button:hover {
+    background-color: #F57C00;
+    -fx-background-color: #F57C00;
+}
+
 /* Lista de archivos en la biblioteca */
 .list-view {
     background-color: #FAFAFA;
@@ -116,3 +136,40 @@
     border-color: #BDBDBD;
     -fx-border-color: #BDBDBD;
 }
+
+.video-list {
+    background-color: black;
+    -fx-background-color: black;
+    border-color: white;
+    -fx-border-color: white;
+    border-width: 1px;
+    -fx-border-width: 1px;
+}
+
+/* Estilo de los elementos dentro de la lista */
+.video-list .list-cell {
+    -fx-text-fill: white;
+    font-size: 14px;
+    -fx-font-size: 14px;
+    padding: 5px;
+    -fx-padding: 5px;
+}
+
+/* Efecto al seleccionar un video */
+.video-list .list-cell:selected {
+    background-color: #2196F3;
+    -fx-background-color: #2196F3;
+    -fx-text-fill: white;
+}
+
+.libraryTitle {
+    background-color: black;
+    -fx-background-color: black;
+    padding: 10px;
+    -fx-padding: 10px;
+    border-color: white;
+    -fx-border-color: white;
+    border-width: 1px 0px 1px 1px;
+    -fx-border-width: 1px 0 1px 1px; /* Borde izquierdo y derecho */
+}
+
