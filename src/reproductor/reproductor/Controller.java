@@ -5,6 +5,7 @@ import java.io.File;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
@@ -52,11 +53,18 @@ public class Controller {
     @FXML
     private Slider volumeSlider;
 
+    @FXML
+    private Button btnChangeSize; // Botón para cambiar tamaño del video
+
+    @FXML
+    private StackPane mediaPlayerContainer; // Contenedor del MediaView
+
     /** Estado inicial de la barra izquierda: la barra está visible */
     private boolean isLeftPanelVisible = true;
     /** Estado inicial de la barra derecha: la barra está visible */
     private boolean isRightPanelVisible = true;
     private MediaPlayer mediaPlayer;
+    private boolean isFullSize = false; // Estado del tamaño del video
 
     /**
      * Método con la lógica del reproductor
@@ -92,6 +100,7 @@ public class Controller {
         if (mediaPlayer != null) {
             mediaPlayer.setVolume(0.5);
         }
+        btnChangeSize.setOnAction(event -> toggleVideoSize());
     }
 
     /**
@@ -175,6 +184,23 @@ public class Controller {
         if (mediaPlayer != null) {
             mediaPlayer.stop();
         }
+    }
+
+    private void toggleVideoSize() {
+        if (isFullSize) {
+            // Volver al tamaño normal
+            mediaView.setFitWidth(700);
+            mediaView.setFitHeight(400);
+            mediaPlayerContainer.setStyle("-fx-background-color: black;"); // Mantiene el fondo negro
+            btnChangeSize.setText("Cambiar Tamaño");
+        } else {
+            // Expandir dentro del panel
+            mediaView.setFitWidth(mediaPlayerContainer.getWidth());
+            mediaView.setFitHeight(mediaPlayerContainer.getHeight());
+            mediaPlayerContainer.setStyle("-fx-background-color: black; -fx-padding: 0;");
+            btnChangeSize.setText("Restaurar Tamaño");
+        }
+        isFullSize = !isFullSize; // Alternar estado
     }
 
 }

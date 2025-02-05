@@ -162,16 +162,23 @@
     -fx-text-fill: white;
 }
 
-.libraryTitle {
-    background-color: black;
-    -fx-background-color: black;
-    padding: 10px;
-    -fx-padding: 10px;
-    border-color: white;
-    -fx-border-color: white;
-    border-width: 1px 0px 1px 1px;
-    -fx-border-width: 1px 0 1px 1px; /* Borde izquierdo y derecho */
+.library-title {
+    font-size: 18px;
+    -fx-font-size: 18px;
+    font-weight: bold;
+    -fx-font-weight: bold; 
+    -fx-text-fill: #333; 
+    padding: 5px 0;
+    -fx-padding: 5px 0;
+    -fx-alignment: center; 
+    background-color: transparent;
+    -fx-background-color: transparent;
+    border-color: #BDBDBD; 
+    -fx-border-color: #BDBDBD;
+    border-width: 0 0 2px 0; 
+    -fx-border-width: 0 0 2px 0; 
 }
+
 
 .slider {
     padding: 5px;
