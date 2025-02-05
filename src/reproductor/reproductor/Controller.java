@@ -59,6 +59,12 @@ public class Controller {
     @FXML
     private StackPane mediaPlayerContainer; // Contenedor del MediaView
 
+    @FXML
+    private Button btnChangeSpeed; // Botón para cambiar la velocidad
+
+    private double[] speedOptions = {0.5, 1.0, 1.5, 2.0}; // Opciones de velocidad
+    private int currentSpeedIndex = 1; // Índice inicial (1.0x velocidad normal)
+
     /** Estado inicial de la barra izquierda: la barra está visible */
     private boolean isLeftPanelVisible = true;
     /** Estado inicial de la barra derecha: la barra está visible */
@@ -78,12 +84,15 @@ public class Controller {
         // Evento de doble clic para reproducir el video seleccionado
         videoListView.setOnMouseClicked(event -> {
             if (event.getClickCount() == 2) {
-                String selectedVideo = videoListView.getSelectionModel().getSelectedItem();
-                if (selectedVideo != null) {
-                    playVideo(selectedVideo);
+                String selectedMedia = videoListView.getSelectionModel().getSelectedItem();
+                if (selectedMedia != null) {
+                    // Extraemos la ruta del archivo después del separador "|"
+                    String mediaPath = selectedMedia.split("\\|")[1].trim();
+                    playMedia(mediaPath);
                 }
             }
         });
+        
 
         // Configurar acciones para los botones
         playButton.setOnAction(event -> playMedia());
@@ -101,6 +110,7 @@ public class Controller {
             mediaPlayer.setVolume(0.5);
         }
         btnChangeSize.setOnAction(event -> toggleVideoSize());
+        btnChangeSpeed.setOnAction(event -> changeVideoSpeed());
     }
 
     /**
@@ -136,34 +146,53 @@ public class Controller {
     // Método para abrir el explorador de archivos y seleccionar un video
     private void openFileChooser() {
         FileChooser fileChooser = new FileChooser();
-        fileChooser.getExtensionFilters()
-                .add(new FileChooser.ExtensionFilter("Archivos de video", "*.mp4", "*.avi", "*.mkv"));
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter(
+            "Archivos Multimedia", "*.mp4", "*.avi", "*.mkv", "*.mp3", "*.wav"));
+    
         File selectedFile = fileChooser.showOpenDialog(null);
-
+    
         if (selectedFile != null) {
-            addVideoToLibrary(selectedFile);
+            addMediaToLibrary(selectedFile);
         }
     }
+    
 
     // Método para agregar el video a la lista
-    private void addVideoToLibrary(File videoFile) {
-        if (videoFile != null) {
-            videoListView.getItems().add(videoFile.getAbsolutePath()); // Guardamos la ruta del video
+    private void addMediaToLibrary(File mediaFile) {
+        if (mediaFile != null) {
+            String fileName = mediaFile.getName();
+            String filePath = mediaFile.getAbsolutePath();
+    
+            if (fileName.endsWith(".mp3") || fileName.endsWith(".wav")) {
+                videoListView.getItems().add("[AUDIO] " + fileName + " | " + filePath);
+            } else {
+                videoListView.getItems().add("[VIDEO] " + fileName + " | " + filePath);
+            }
         }
     }
+    
 
     // Método para reproducir un video
-    private void playVideo(String videoPath) {
+    private void playMedia(String mediaPath) {
         if (mediaPlayer != null) {
-            mediaPlayer.stop(); // Detener cualquier video en reproducción
+            mediaPlayer.stop(); // Detener cualquier reproducción en curso
         }
-
-        Media media = new Media(new File(videoPath).toURI().toString());
+    
+        Media media = new Media(new File(mediaPath).toURI().toString());
         mediaPlayer = new MediaPlayer(media);
-        mediaView.setMediaPlayer(mediaPlayer);
-
-        mediaPlayer.play(); // Iniciar la reproducción
+    
+        if (mediaPath.endsWith(".mp3") || mediaPath.endsWith(".wav")) {
+            // Es un archivo de audio → Ocultamos MediaView y solo reproducimos el audio
+            mediaView.setVisible(false);
+        } else {
+            // Es un archivo de video → Mostramos el MediaView
+            mediaView.setMediaPlayer(mediaPlayer);
+            mediaView.setVisible(true);
+        }
+    
+        mediaPlayer.play();
     }
+    
 
     // Método para iniciar la reproducción del video
     private void playMedia() {
@@ -201,6 +230,15 @@ public class Controller {
             btnChangeSize.setText("Restaurar Tamaño");
         }
         isFullSize = !isFullSize; // Alternar estado
+    }
+
+    private void changeVideoSpeed() {
+        if (mediaPlayer != null) {
+            currentSpeedIndex = (currentSpeedIndex + 1) % speedOptions.length; // Cambiar al siguiente índice
+            double newSpeed = speedOptions[currentSpeedIndex]; // Obtener la nueva velocidad
+            mediaPlayer.setRate(newSpeed); // Aplicar la velocidad al MediaPlayer
+            btnChangeSpeed.setText("Velocidad: " + newSpeed + "x"); // Actualizar texto del botón
+        }
     }
 
 }
