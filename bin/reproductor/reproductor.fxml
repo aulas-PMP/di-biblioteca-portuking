@@ -41,17 +41,13 @@
                 <VBox fx:id="leftPanel" alignment="TOP_CENTER" prefHeight="663.0" prefWidth="206.0" styleClass="vbox" BorderPane.alignment="CENTER">
                     <children>
                         <HBox alignment="TOP_RIGHT">
-                           <Button fx:id="toggleSidebarButton" styleClass="toggle-button" text="⏪" />
+                           <Button fx:id="toggleSideLeftbarButton" styleClass="toggle-button" text="⏪" />
                         </HBox>
                         <Button fx:id="btnChangeSpeed" mnemonicParsing="false" prefHeight="45.0" prefWidth="144.0" text="Cambiar Velocidad" />
                         <Button fx:id="btnChangeSize" mnemonicParsing="false" prefHeight="45.0" prefWidth="130.0" text="Cambiar Tamaño" textAlignment="CENTER" />
                     </children>
                 </VBox>
             </left>
-            
-            <right>
-                <ListView fx:id="fileList" prefHeight="200.0" prefWidth="200.0" styleClass="list-view" BorderPane.alignment="CENTER" />
-            </right>
             
             <center>
                 <StackPane fx:id="mediaPlayerContainer" prefHeight="150.0" prefWidth="200.0" styleClass="stack-pane" BorderPane.alignment="CENTER" />
@@ -66,7 +62,21 @@
                     </children>
                 </HBox>
             </bottom>
+        
+         <right>
+            <VBox fx:id="multimediaPanel" prefHeight="664.0" prefWidth="238.0" styleClass="vbox" BorderPane.alignment="CENTER">
+               <children>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Button fx:id="toggleSideRigthbarButton" styleClass="toggle-button" text="⏩" />
+                     </children>
+                  </HBox>
+                  <ListView prefHeight="449.0" prefWidth="217.0" />
+               </children>
+            </VBox>
+         </right>
 
         </BorderPane>
+
     </children>
 </StackPane>
