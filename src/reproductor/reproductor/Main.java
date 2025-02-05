@@ -1,5 +1,6 @@
 package reproductor;
 
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -12,7 +13,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("reproductor.fxml"));
         primaryStage.setTitle("Reproductor Multimedia");
-        primaryStage.setScene(new Scene(root, 1920, 1000));
+        primaryStage.setScene(new Scene(root, 1920, 1080));
         primaryStage.show();
     }
 

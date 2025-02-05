@@ -12,6 +12,8 @@
 <?import javafx.scene.media.MediaView?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Slider?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
 
 
 
@@ -28,17 +30,17 @@
                <menus>
                   <Menu mnemonicParsing="false" text="Archivo">
                      <items>
-                        <MenuItem fx:id="menuClose" mnemonicParsing="false" text="Close" />
+                        <MenuItem fx:id="menuAdd" mnemonicParsing="false" text="Añadir Archivo" />
                      </items>
                   </Menu>
                   <Menu mnemonicParsing="false" text="Biblioteca">
                      <items>
-                        <MenuItem fx:id="menuDelete" mnemonicParsing="false" text="Delete" />
+                        <MenuItem fx:id="menuDelete" mnemonicParsing="false" text="Eleminar Biblioteca" />
                      </items>
                   </Menu>
                   <Menu mnemonicParsing="false" text="Ver">
                      <items>
-                        <MenuItem fx:id="menuAbout" mnemonicParsing="false" text="About" />
+                        <MenuItem fx:id="menuAbout" mnemonicParsing="false" text="Acerca de..." />
                      </items>
                   </Menu>
                </menus>
@@ -62,6 +64,7 @@
 
          <center>
             <StackPane fx:id="mediaPlayerContainer" styleClass="stack-pane">
+               <ImageView fx:id="audioBackgroundImage" fitHeight="400" fitWidth="700" preserveRatio="true" visible="false"/>
                <MediaView fx:id="mediaView" preserveRatio="true" />
             </StackPane>
          </center>
@@ -76,6 +79,7 @@
                   <Button fx:id="stopButton" mnemonicParsing="false" text="Stop" />
                   <Label text="🔊" styleClass="volume-label"/>
                   <Slider fx:id="volumeSlider" min="0" max="1" value="0.5" prefWidth="150"/>
+                  <Slider fx:id="progressSlider" min="0" max="100" value="0" styleClass="progress-slider"/>
                </children>
             </HBox>
          </bottom>
@@ -89,10 +93,10 @@
                         <Button fx:id="toggleSideRigthbarButton" styleClass="toggle-button" text="⏩" />
                      </children>
                   </HBox>
-                  <Label fx:id="libraryTitleLabel" text="Biblioteca de Videos"
+                  <Label fx:id="libraryTitleLabel" text="Biblioteca Multimedia"
                      styleClass="library-title" />
                   <ListView fx:id="videoListView" prefHeight="449.0" prefWidth="217.0" />
-                  <Button fx:id="btnAddVideo" text="Añadir Video" styleClass="library-button" />
+                  <Button fx:id="btnAddVideo" text="Añadir Archivo multimedia" styleClass="library-button" />
                </children>
             </VBox>
          </right>

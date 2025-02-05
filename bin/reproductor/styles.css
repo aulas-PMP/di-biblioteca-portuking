@@ -1,10 +1,8 @@
-/* Fondo de la aplicación */
 .root {
     background-color: #FAFAFA;
     -fx-background-color: #FAFAFA;
 }
 
-/* Estilo para la barra de menú */
 .menu-bar {
     background-color: #E3F2FD;
     -fx-background-color: #E3F2FD;
@@ -14,13 +12,11 @@
     -fx-border-color: #BDBDBD;
 }
 
-/* Estilo para los menús */
 .menu {
     color: #424242;
     -fx-text-fill: #424242;
 }
 
-/* Estilo para los botones */
 .button {
     background-color: #2196F3;
     -fx-background-color: #2196F3;
@@ -38,19 +34,16 @@
     -fx-cursor: hand;
 }
 
-/* Hover (cuando el cursor pasa por encima del botón) */
 .button:hover {
     background-color: #1976D2;
     -fx-background-color: #1976D2;
 }
 
-/* Botones de control (Play, Pause, Stop) */
 .hbox .button {
     min-width: 80px;
     -fx-min-width: 80px;
 }
 
-/* Botón de minimizar alineado arriba a la derecha */
 .toggle-button {
     background-color: #FF9800;
     -fx-background-color: #FF9800;
@@ -65,17 +58,14 @@
     -fx-cursor: hand;
     -fx-alignment: center-right;
     margin: 5px 5px 0px 0px;
-    -fx-margin: 5px 5px 0px 0px; /* Espacio desde arriba y la derecha */
+    -fx-margin: 5px 5px 0px 0px; 
 }
 
-/* Efecto al pasar el mouse */
 .toggle-button:hover {
     background-color: #F57C00;
     -fx-background-color: #F57C00;
 }
 
-
-/* Panel lateral izquierdo */
 .vbox {
     background-color: #E3F2FD;
     -fx-background-color: #E3F2FD;
@@ -90,7 +80,7 @@
 
 .library-button {
     background-color: #FF9800;
-    -fx-background-color: #FF9800; /* Verde */
+    -fx-background-color: #FF9800; 
     -fx-text-fill: white;
     font-size: 14px;
     -fx-font-size: 14px;
@@ -102,13 +92,11 @@
     -fx-padding: 10px;
 }
 
-/* Hover (cuando el cursor pasa sobre el botón) */
 .library-button:hover {
     background-color: #F57C00;
     -fx-background-color: #F57C00;
 }
 
-/* Lista de archivos en la biblioteca */
 .list-view {
     background-color: #FAFAFA;
     -fx-background-color: #FAFAFA;
@@ -116,7 +104,6 @@
     -fx-border-color: #BDBDBD;
 }
 
-/* Reproductor de medios (centro) */
 .stack-pane {
     background-color: #020202;
     -fx-background-color: #020202;
@@ -126,7 +113,6 @@
     -fx-border-width: 1px;
 }
 
-/* Contenedor de los botones inferiores */
 .hbox {
     background-color: #E3F2FD;
     -fx-background-color: #E3F2FD;
@@ -146,7 +132,6 @@
     -fx-border-width: 1px;
 }
 
-/* Estilo de los elementos dentro de la lista */
 .video-list .list-cell {
     -fx-text-fill: white;
     font-size: 14px;
@@ -155,7 +140,6 @@
     -fx-padding: 5px;
 }
 
-/* Efecto al seleccionar un video */
 .video-list .list-cell:selected {
     background-color: #2196F3;
     -fx-background-color: #2196F3;
@@ -207,5 +191,25 @@
     padding: 3px;
     -fx-padding: 3px;
 }
+
+.progress-slider {
+    -fx-pref-width: 300px;
+    padding: 5px;
+    -fx-padding: 5px;
+    background-color: #BDBDBD;
+    -fx-background-color: #BDBDBD;
+}
+
+.progress-slider .thumb {
+    background-color: #2196F3;
+    -fx-background-color: #2196F3;
+    -fx-background-radius: 50%;
+}
+
+.progress-slider .track {
+    background-color: #E0E0E0;
+    -fx-background-color: #E0E0E0;
+}
+
 
 
